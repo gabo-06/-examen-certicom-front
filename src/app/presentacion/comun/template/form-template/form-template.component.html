@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="acciones text-end" *ngIf="Acciones">
+      <ng-content select="[Acciones]"></ng-content>
+    </div>
+    <div class="col-12">
+      <ng-content select="[Cuerpo]"></ng-content>
+    </div>
+  </div>
+</div>

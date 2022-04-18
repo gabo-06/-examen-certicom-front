@@ -1,0 +1,70 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-drawer-container {
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+mat-drawer {
+  width: 300px;
+}
+
+@media (max-width: 599px) {
+  mat-drawer {
+    width: 100%;
+  }
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
+}
+
+.logo-container img {
+  width: 100px;
+  margin-left: 15px;
+}
+
+.menu-button-color {
+  color: white;
+}
+
+.menu-button {
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+  color: white;
+  font-weight: normal;
+}
+
+.menu-button-sub {
+  margin-left: 15px;
+}
+
+.mat-toolbar {
+  background: #ffffff;
+  color: #5b6166;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 1;
+}
+
+.bottom-button {
+  position: absolute;
+  width: 85%;
+  margin-left: 5px;
+  bottom: 15px;
+}
+
+.body-container-div {
+  margin-top: 64px;
+  height: calc(100% - 64px);
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0px;
+}

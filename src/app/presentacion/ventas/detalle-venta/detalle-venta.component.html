@@ -1,0 +1,41 @@
+<h3 mat-dialog-title class="text-center"><strong>Información de Venta</strong></h3>
+<div mat-dialog-content>
+  <div class="row mb-3">
+    <div class="col-12">
+      <strong>Nombres: </strong><span></span>
+    </div>
+    <div class="col-12">
+      <strong>Apellidos: </strong><span></span>
+    </div>
+    <div class="col-12">
+      <strong>DNI: </strong><span></span>
+    </div>
+    <div class="col-12">
+      <strong>Teléfono: </strong><span></span>
+    </div>
+    <div class="col-12">
+      <strong>Email: </strong><span></span>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <h3 class="my-2">Detalle de Venta</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="cabecera">Producto</th>
+            <th class="cabecera">Precio Unitario</th>
+            <th class="cabecera">Cantidad</th>
+            <th class="cabecera">Sub Total</th>            
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="text-center block-full-width">
+  <button mat-raised-button color="accent" (click)="dialogRef.close()" cdkFocusInitial>Cerrar</button>
+</div>

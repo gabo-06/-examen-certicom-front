@@ -1,0 +1,23 @@
+<app-form-template [Acciones]="false">
+  <ng-container Cuerpo>
+    <!-- <div class="row" *ngIf="MostrarProyecto">
+      <mat-form-field appearance="outline" class="col-md-6 col-lg-4">
+        <mat-label>Obra / Proyecto</mat-label>
+        <input matInput value="Breña" readonly>
+      </mat-form-field>
+    </div> -->
+    <div class="row">
+      <div class="col-12 col-md-7 d-flex">
+        <button mat-icon-button (click)="GoBack()" *ngIf="UrlRetorno">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <h2 class="mt-1">{{Titulo}}</h2>
+      </div>
+      <div class="col-12 col-md-5 text-end">
+        <ng-content select="[Acciones]"> </ng-content>
+      </div>
+      <div class="col-12 mb-3 d-block d-sm-none"></div>
+    </div>
+    <ng-content select="[Cuerpo]"> </ng-content>
+  </ng-container>
+</app-form-template>

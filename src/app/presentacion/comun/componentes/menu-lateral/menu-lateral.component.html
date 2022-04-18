@@ -1,0 +1,66 @@
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over" [autoFocus]="false" [opened]="false">
+    <div class="pt-2">
+      <mat-list>
+        <mat-list-item class="text-start mb-2 d-block d-sm-none">
+          <button mat-icon-button (click)="drawer.toggle()" class="menu-button-color">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-list-item>
+        <ng-container *ngFor="let menu of menus">
+          <mat-list-item>
+            <button mat-button class="w-100 menu-button" (click)="toggle(menu)">
+              <div class="action-container">                
+                <ng-container *ngIf="menu.hijos && menu.hijos.length; else noChild">                  
+                  <mat-icon class="action-buttons mt-1 me-4" *ngIf="menu.desplegado">expand_less</mat-icon>
+                  <mat-icon class="action-buttons mt-1 me-4" *ngIf="!menu.desplegado">expand_more</mat-icon>
+                </ng-container>
+                <ng-template #noChild>
+                  <!-- <mat-icon class="action-buttons mt-1 me-4">link</mat-icon> -->
+                  <div class="mt-1 me-5"></div>
+                </ng-template>
+                <span class="action-content text-start">{{menu.label}}</span>
+              </div>
+            </button>
+          </mat-list-item>
+          <ng-container *ngIf="menu.desplegado">
+            <ng-container *ngFor="let item of menu.hijos">
+              <mat-list-item>
+                <button mat-button class="w-100 menu-button menu-button-sub" (click)="Navegar(item.ruta)">
+                  <div class="action-container">
+                    <!-- <mat-icon class="action-buttons mt-1 me-4">link</mat-icon> -->
+                    <div class="mt-1 me-5"></div>
+                    <span class="action-content text-start">{{item.label}}</span>
+                  </div>
+                </button>
+              </mat-list-item>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </mat-list>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="main-container">
+      <mat-toolbar>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- <div class="text-center mt-3 mb-4 logo-container hide">
+          <img src="assets/logo.png">
+        </div> -->
+        <span class="example-spacer"></span>
+        <button mat-button>
+          <!-- {{NombreUsuario}} -->
+          Gabriel Gil
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </mat-toolbar>
+      <div class="body-container-div">
+        <div class="mt-3 mb-3">
+          <ng-content select="[Body]"></ng-content>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

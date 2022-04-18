@@ -1,0 +1,68 @@
+<app-transaccional-template Titulo="Gestión de Ventas">
+  <ng-container Acciones>
+
+  </ng-container>
+  <ng-container Cuerpo>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Todas las ventas">
+        <div class="row m-2 mt-3 mb-3">
+          <div class="col-12">
+            <div class="row mt-2">
+              <mat-form-field appearance="outline" class="col-md-4 col-12">
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="fecha" (focus)="fecha.open()" placeholder="Fecha" [(ngModel)]="filtros.fecha" />
+                <button mat-icon-button matSuffix *ngIf="filtros.fecha" (click)="filtros.fecha = null; filtros.fecha = null">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+                <mat-datepicker #fecha></mat-datepicker>                
+              </mat-form-field>
+              <div class="col-12 text-center">
+                <button mat-raised-button color="accent" (click)="buscar()">Buscar</button>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-12 col-lg-12 table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="cabecera">Cliente</th>
+                      <th class="cabecera">Fecha</th>
+                      <th class="cabecera">Total</th>
+                      <th class="cabecera">Ver detalle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngIf="listadoVentas && listadoVentas.length; else NoItems">
+                      <tr *ngFor="let item of listadoVentas; let i = index" class="detalles">
+                        <td>{{item.cliente}}</td>
+                        <td>{{item.fecha}}</td>
+                        <td>0.00</td>
+                        <td>
+                          <button mat-icon-button (click)="verDetalleVenta(item)">
+                            <mat-icon>search</mat-icon>
+                          </button>
+                      </tr>
+                    </ng-container>
+                    <ng-template #NoItems>
+                      <tr class="detalles">
+                        <td colspan="8">
+                          No se encontraron resultados
+                        </td>
+                      </tr>
+                    </ng-template>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-12 mt-3" *ngIf="listadoVentas && listadoVentas.length">
+                <!-- <app-paginacion [Total]="total" [PageSize]="filtros.tamanio" [(Page)]="filtros.pagina" (PageChanged)="cambiarPagina($event)"></app-paginacion> -->
+                <app-paginacion [Total]="total" [PageSize]="filtros.tamanio" (PageChanged)="cambiarPagina($event)"></app-paginacion>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</app-transaccional-template>
